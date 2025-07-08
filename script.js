@@ -1,28 +1,39 @@
-// 🎵 Music toggle
-const music = document.getElementById("bgMusic");
-const toggleBtn = document.getElementById("musicToggle");
-toggleBtn.addEventListener("click", () => {
-  if (music.paused) {
-    music.play();
-    toggleBtn.textContent = "🔊";
-  } else {
-    music.pause();
-    toggleBtn.textContent = "🔇";
+// Unlock music autoplay on user interaction
+document.addEventListener('DOMContentLoaded', () => {
+  const music = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+
+  function unlockAudio() {
+    music.muted = false;
+    music.play().catch(() => {});
+    document.removeEventListener('click', unlockAudio);
   }
+
+  document.addEventListener('click', unlockAudio);
+
+  musicToggle.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      musicToggle.textContent = "🔊";
+    } else {
+      music.pause();
+      musicToggle.textContent = "🔇";
+    }
+  });
 });
 
-// 🎂 Cake drawing & slicing animation
+// Cake drawing
 const canvas = document.getElementById("cakeCanvas");
 const ctx = canvas.getContext("2d");
 
-function drawCake() {
+function drawCakeBase() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // Base
-  ctx.fillStyle = "#8B4513"; // chocolate base
+  // Cake body
+  ctx.fillStyle = "#8B4513";
   ctx.fillRect(90, 130, 120, 80);
-  ctx.fillStyle = "#FFF"; // top frosting
+  ctx.fillStyle = "#fff";
   ctx.fillRect(90, 120, 120, 10);
-  ctx.fillStyle = "#ff6fa2"; // dripping icing
+  ctx.fillStyle = "#ff6fa2";
   ctx.beginPath();
   ctx.moveTo(90, 120);
   ctx.bezierCurveTo(100, 140, 140, 100, 210, 120);
@@ -37,59 +48,15 @@ function drawCake() {
   ctx.fill();
 }
 
+drawCakeBase();
+
+// Animate cake slice
 function cutCake() {
-  // Animate a slice coming out
-  drawCake();
-  ctx.fillStyle = "#fff";
-  ctx.beginPath();
-  ctx.moveTo(150, 120);
-  ctx.lineTo(170, 180);
-  ctx.lineTo(130, 180);
-  ctx.closePath();
-  ctx.fill();
+  let sliceY = 130;
+  const interval = setInterval(() => {
+    drawCakeBase();
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.moveTo(150, 120);
 
-  triggerConfetti();
-}
-
-// 💌 Envelope toggle
-function toggleEnvelope() {
-  const envelope = document.querySelector(".envelope");
-  envelope.classList.toggle("open");
-  triggerConfetti();
-}
-
-// ⬇ Smooth scroll to section
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-  triggerConfetti();
-}
-
-// 🎉 Confetti burst per section
-function triggerConfetti() {
-  const confettiContainer = document.querySelector(".confetti");
-  for (let i = 0; i < 50; i++) {
-    const confetti = document.createElement("div");
-    confetti.classList.add("confetti-piece");
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.backgroundColor =
-      ["#ff69b4", "#ffb6c1", "#ff1493", "#ffc0cb"][Math.floor(Math.random() * 4)];
-    confetti.style.animationDuration = 2 + Math.random() * 2 + "s";
-    confetti.style.width = "6px";
-    confetti.style.height = "12px";
-    confetti.style.position = "fixed";
-    confetti.style.top = "0";
-    confetti.style.opacity = "0.7";
-    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-    confetti.style.zIndex = "999";
-
-    confettiContainer.appendChild(confetti);
-
-    setTimeout(() => {
-      confetti.remove();
-    }, 4000);
-  }
-}
-
-// 🧁 Initialize cake
-drawCake();
 
