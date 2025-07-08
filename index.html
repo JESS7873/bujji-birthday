@@ -9,7 +9,7 @@
 </head>
 <body>
   <!-- Background Music -->
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bgMusic" autoplay loop muted playsinline>
     <source src="happy-birthday.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -20,32 +20,30 @@
     <h1>Cut the Cake 🎂</h1>
     <canvas id="cakeCanvas" width="300" height="250"></canvas>
     <button onclick="cutCake()">Slice the Cake</button>
-    <div class="scroll-btn" onclick="scrollToSection('message')">Next →</div>
   </section>
 
   <!-- Section 2: Birthday Message -->
   <section class="section" id="message">
     <h2>Happy Birthday my beloved husband, my Bujji ❤️</h2>
-    <div class="scroll-btn" onclick="scrollToSection('bouquet')">Next →</div>
   </section>
 
   <!-- Section 3: Bouquet -->
   <section class="section" id="bouquet">
     <img src="https://i.ibb.co/YBdq7vBg/11bc4c67-a21b-484e-b534-b5252a9de864.jpg" alt="Bouquet" />
     <p>This is a bouquet for you as I couldn't send it to your home, so sending it virtually... 💐</p>
-    <div class="scroll-btn" onclick="scrollToSection('photo')">Next →</div>
   </section>
 
   <!-- Section 4: Couple Photo -->
   <section class="section" id="photo">
     <img src="https://i.ibb.co/Qj1w5ZCN/Whats-App-Image-2025-07-08-at-13-13-03-bd5cd433.jpg" alt="Couple" class="couple-img"/>
     <p>Forever Us 💞</p>
-    <div class="scroll-btn" onclick="scrollToSection('envelope')">Next →</div>
   </section>
 
   <!-- Section 5: Envelope -->
   <section class="section" id="envelope-section">
-    <div class="envelope" onclick="toggleEnvelope()">
+    <h2>Tap below to open your letter 💌</h2>
+    <button onclick="toggleEnvelope()">Open Envelope</button>
+    <div class="envelope">
       <div class="flap"></div>
       <div class="letter">
         <p><strong>My dearest Bujji,</strong><br><br>
@@ -57,7 +55,6 @@
         </p>
       </div>
     </div>
-    <div class="scroll-btn" onclick="scrollToSection('blessing')">Next →</div>
   </section>
 
   <!-- Section 6: Final Blessing -->
@@ -79,4 +76,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
