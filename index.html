@@ -1,74 +1,82 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Bujji 🎂</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="happy-birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="musicToggle">🔊</button>
 
-<!-- SECTION 1: CAKE -->
-<section class="section" id="cake">
-  <h1>Cut the Cake 🎂</h1>
-  <canvas id="cakeCanvas" width="300" height="250"></canvas>
-  <button onclick="cutCake()">Slice the Cake</button>
-  <div class="scroll-btn" onclick="scrollToSection('message')">Next ➡️</div>
-</section>
+  <!-- Section 1: Cake Cutting -->
+  <section class="section" id="cake">
+    <h1>Cut the Cake 🎂</h1>
+    <canvas id="cakeCanvas" width="300" height="250"></canvas>
+    <button onclick="cutCake()">Slice the Cake</button>
+    <div class="scroll-btn" onclick="scrollToSection('message')">Next →</div>
+  </section>
 
-<!-- SECTION 2: MESSAGE -->
-<section class="section" id="message">
-  <h2>Happy Birthday my beloved husband, my Bujji ❤️</h2>
-  <div class="scroll-btn" onclick="scrollToSection('bouquet')">Next ➡️</div>
-</section>
+  <!-- Section 2: Birthday Message -->
+  <section class="section" id="message">
+    <h2>Happy Birthday my beloved husband, my Bujji ❤️</h2>
+    <div class="scroll-btn" onclick="scrollToSection('bouquet')">Next →</div>
+  </section>
 
-<!-- SECTION 3: BOUQUET -->
-<section class="section" id="bouquet">
-  <img src="https://i.ibb.co/YBdq7vBg/11bc4c67-a21b-484e-b534-b5252a9de864.jpg" alt="Bouquet" />
-  <p>This is a bouquet for you as I couldn't send it to your home, so sending it virtually... 💐</p>
-  <div class="scroll-btn" onclick="scrollToSection('photo')">Next ➡️</div>
-</section>
+  <!-- Section 3: Bouquet -->
+  <section class="section" id="bouquet">
+    <img src="https://i.ibb.co/YBdq7vBg/11bc4c67-a21b-484e-b534-b5252a9de864.jpg" alt="Bouquet" />
+    <p>This is a bouquet for you as I couldn't send it to your home, so sending it virtually... 💐</p>
+    <div class="scroll-btn" onclick="scrollToSection('photo')">Next →</div>
+  </section>
 
-<!-- SECTION 4: PHOTO -->
-<section class="section" id="photo">
-  <img src="https://i.ibb.co/Qj1w5ZCN/Whats-App-Image-2025-07-08-at-13-13-03-bd5cd433.jpg" alt="Couple" class="couple-img"/>
-  <p>Forever Us 💞</p>
-  <div class="scroll-btn" onclick="scrollToSection('envelope')">Next ➡️</div>
-</section>
+  <!-- Section 4: Couple Photo -->
+  <section class="section" id="photo">
+    <img src="https://i.ibb.co/Qj1w5ZCN/Whats-App-Image-2025-07-08-at-13-13-03-bd5cd433.jpg" alt="Couple" class="couple-img"/>
+    <p>Forever Us 💞</p>
+    <div class="scroll-btn" onclick="scrollToSection('envelope')">Next →</div>
+  </section>
 
-<!-- SECTION 5: ENVELOPE -->
-<section class="section" id="envelope-section">
-  <div class="envelope" onclick="toggleEnvelope()">
-    <div class="flap"></div>
-    <div class="letter">
-      <p><strong>My dearest Bujji,</strong><br><br>
-      There are no words big enough to express how much I love you and care for you. You are not just the love of my life — you are my strength, my peace, my forever. Every moment spent with you feels like a blessing, and every dream I have begins and ends with you.<br><br>
-      I long for the day I get to celebrate your birthday not just as your girl, but as your wife. I want to be the one by your side, lighting the candles, sharing the cake, holding your hand — not just this year, but every year, forevermore.<br><br>
-      From this birthday and every birthday after, I want to be yours — completely, fully, until my very last breath. Through every laugh, every tear, every joy, and every storm... I want to walk beside you, as your forever.<br><br>
-      I love you so much, my man. Please never leave me. I need you, I choose you, I love you endlessly.<br><br>
-      <strong>From your beloved Bujju,<br>Your Wifey Jessica 💕</strong>
-      </p>
+  <!-- Section 5: Envelope -->
+  <section class="section" id="envelope-section">
+    <div class="envelope" onclick="toggleEnvelope()">
+      <div class="flap"></div>
+      <div class="letter">
+        <p><strong>My dearest Bujji,</strong><br><br>
+        There are no words big enough to express how much I love you and care for you. You are not just the love of my life — you are my strength, my peace, my forever. Every moment spent with you feels like a blessing, and every dream I have begins and ends with you.<br><br>
+        I long for the day I get to celebrate your birthday not just as your girl, but as your wife. I want to be the one by your side, lighting the candles, sharing the cake, holding your hand — not just this year, but every year, forevermore.<br><br>
+        From this birthday and every birthday after, I want to be yours — completely, fully, until my very last breath. Through every laugh, every tear, every joy, and every storm... I want to walk beside you, as your forever.<br><br>
+        I love you so much, my man. Please never leave me. I need you, I choose you, I love you endlessly.<br><br>
+        <strong>From your beloved Bujju,<br>Your Wifey Jessica 💕</strong>
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="scroll-btn" onclick="scrollToSection('blessing')">Next ➡️</div>
-</section>
+    <div class="scroll-btn" onclick="scrollToSection('blessing')">Next →</div>
+  </section>
 
-<!-- SECTION 6: FINAL BLESSING -->
-<section class="section" id="blessing">
-  <h2>HAPPY BIRTHDAY, MY DEAREST BUJJI 🎉</h2>
-  <p>
-    May this year bring you endless happiness, strength, and success.<br>
-    Today isn’t just your birthday — it’s a celebration of the man I love, the soul I cherish, and the future I can’t wait to share.<br><br>
-    Let’s begin this special day with joy, love, and countless memories to come.<br>
-    From this moment on, I promise to walk beside you — through every sunrise, every storm, every victory, and every dream.<br><br>
-    I’m waiting to make your day the best, to love you endlessly, and to remind you — always — that you are my everything.<br><br>
-    <strong>I LOVE YOU SO MUCH, UMAAHHHHH 💋</strong><br>— Your Wifey, Jessica
-  </p>
-</section>
+  <!-- Section 6: Final Blessing -->
+  <section class="section" id="blessing">
+    <h2>HAPPY BIRTHDAY, MY DEAREST BUJJI 🎉</h2>
+    <p>
+      May this year bring you endless happiness, strength, and success.<br>
+      Today isn’t just your birthday — it’s a celebration of the man I love, the soul I cherish, and the future I can’t wait to share.<br><br>
+      Let’s begin this special day with joy, love, and countless memories to come.<br>
+      From this moment on, I promise to walk beside you — through every sunrise, every storm, every victory, and every dream.<br><br>
+      I’m waiting to make your day the best, to love you endlessly, and to remind you — always — that you are my everything.<br><br>
+      <strong>I LOVE YOU SO MUCH, UMAAHHHHH 💋</strong><br>— Your Wifey, Jessica
+    </p>
+  </section>
 
-<!-- CONFETTI & BALLOONS -->
-<div class="confetti"></div>
+  <!-- Confetti Placeholder -->
+  <div class="confetti"></div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
